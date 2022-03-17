@@ -1,13 +1,11 @@
-import Header from './Header'
-import Main from './Main'
-import Footer from './Footer'
+import FirstScreen from './FirstScreen'
+import MainScreen from './MainScreen'
 
 export default function App() {
     return (
         <>
-            <Header />
-            <Main />
-            <Footer />
+            <FirstScreen />
+            <MainScreen />
         </>
     )
 }
