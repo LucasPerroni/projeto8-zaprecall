@@ -1,33 +1,52 @@
 import {useState} from 'react'
+import Footer from './Footer.js'
 
 const deck = [
     {question: "Test 1", answer: "Answer 1"},
     {question: "Test 2", answer: "Answer 2"},
     {question: "Test 3", answer: "Answer 3"},
-    {question: "Test 4", answer: "Answer 4"}, 
-    {question: "Test 5", answer: "Answer 5"}, 
-    {question: "Test 6", answer: "Answer 6"}, 
-    {question: "Test 7", answer: "Answer 7"}, 
-    {question: "Test 8", answer: "Answer 8"}, 
-    {question: "Test 9", answer: "Answer 9"}, 
+    {question: "Test 4", answer: "Answer 4"},
+    {question: "Test 5", answer: "Answer 5"},
+    {question: "Test 6", answer: "Answer 6"},
+    {question: "Test 7", answer: "Answer 7"},
+    {question: "Test 8", answer: "Answer 8"},
+    {question: "Test 9", answer: "Answer 9"},
     {question: "Test 10", answer: "Answer 10"}
 ]
 
-export default function Main() {
-    const newDeck = [...deck]
-    newDeck.sort(() => Math.random() - 0.5)
+const newDeck = [...deck]
+newDeck.sort(() => Math.random() - 0.5)
 
+export default function Main() {
+    const [finished, setFinished] = useState([])
+    const [clear, setClear] = useState(0)
+    const max = newDeck.length
+
+    function attFinished(color) {
+        setFinished([...finished, color])
+        setClear(clear + 1)
+    }
+ 
     return (
-        <main>
-            {newDeck.map(
-                ({question, answer}, i) => 
-                <Question key={question} index={i + 1} question={question} answer={answer} />
-            )}
-        </main>
+        <>
+            <main style={{'marginBottom': `${clear === max ? 185 : 110}px`}}>
+                {newDeck.map(
+                    ({question, answer}, i) => 
+                    <Question 
+                        key={question} 
+                        index={i + 1} 
+                        question={question} 
+                        answer={answer} 
+                        attFinished={attFinished} 
+                    />
+                )}
+            </main>
+            <Footer array={finished} clear={clear} max={max}/>
+        </>
     )
 }
 
-function Question({question, answer, index}) {
+function Question({question, answer, index, attFinished}) {
     const [show, setShow] = useState(false)
     const [flip, setFlip] = useState('')
     const [icon, setIcon] = useState('')
@@ -65,10 +84,13 @@ function Question({question, answer, index}) {
     function returnQuestion(color) {
         if (color === 'red') {
             setIcon('red')
+            attFinished('red')
         } else if (color === "yellow") {
             setIcon('yellow')
+            attFinished('yellow')
         } else {
             setIcon('green')
+            attFinished('green')
         }
         setShow(false)
     }
