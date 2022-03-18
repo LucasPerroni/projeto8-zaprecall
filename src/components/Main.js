@@ -1,18 +1,13 @@
 import {useState} from 'react'
-import { Decks } from './Decks.js'
 import FirstScreen from './FirstScreen.js'
 import Header from './Header.js'
 import Footer from './Footer.js'
 
-const deck = Decks.hiragana
-const newDeck = [...deck]
-newDeck.sort(() => Math.random() - 0.5)
-
-export default function Main({input}) {
+export default function Main({input, deck}) {
     const [finished, setFinished] = useState([])
     const [clear, setClear] = useState(0)
     const [restart, setRestart] = useState(false)
-    const max = newDeck.length
+    const max = deck.length
 
     function attFinished(color) {
         setFinished([...finished, color])
@@ -24,7 +19,7 @@ export default function Main({input}) {
         <>
             <Header />
             <main style={{'marginBottom': `${clear === max ? 215 : 110}px`}}>
-                {newDeck.map(
+                {deck.map(
                     ({question, answer}, i) => 
                     <Question key={question} index={i + 1} question={question} answer={answer} 
                         attFinished={attFinished} />
