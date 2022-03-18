@@ -8,7 +8,7 @@ const deck = Decks.hiragana
 const newDeck = [...deck]
 newDeck.sort(() => Math.random() - 0.5)
 
-export default function Main() {
+export default function Main({input}) {
     const [finished, setFinished] = useState([])
     const [clear, setClear] = useState(0)
     const [restart, setRestart] = useState(false)
@@ -30,7 +30,7 @@ export default function Main() {
                         attFinished={attFinished} />
                 )}
             </main>
-            <Footer array={finished} clear={clear} max={max} 
+            <Footer array={finished} clear={clear} max={max} input={input} 
                 setFinished={setFinished} setClear={setClear} setRestart={setRestart}/>
         </>
     )

@@ -1,4 +1,4 @@
-export default function Footer({array, clear, max, setFinished, setClear, setRestart}) {
+export default function Footer({array, clear, max, input, setFinished, setClear, setRestart}) {
 
     function restartRecall() {
         setRestart(true)
@@ -8,7 +8,7 @@ export default function Footer({array, clear, max, setFinished, setClear, setRes
 
     return (
         <footer style={{'height': `${max === clear ? 190 : 75}px`}}>
-            {max === clear ? <Clear array={array} /> : <p>{clear}/{max} CLEARED</p>}
+            {max === clear ? <Clear array={array} input={input} /> : <p>{clear}/{max} CLEARED</p>}
             <div>
                 {array.map(
                     (color, i) => <Icons key={`${color} - ${i}`} color={color}/> 
@@ -19,15 +19,15 @@ export default function Footer({array, clear, max, setFinished, setClear, setRes
     )
 }
 
-function Clear({array}) {
+function Clear({array, input}) {
     let counter = 0
-    array.forEach(color => color === 'red' ? counter++ : <></>)
+    array.forEach(color => color === 'green' ? counter++ : <></>)
 
-    if (counter === 0) {
+    if (counter >= input) {
         return (
             <>
                 <h1>&#x1F973; YEYYY</h1>
-                <p className="clear-p">You didn't missed one flashcard!</p>
+                <p className="clear-p">You reached your goal!</p>
             </>
         )
     } else {
