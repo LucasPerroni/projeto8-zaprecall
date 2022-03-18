@@ -1,25 +1,17 @@
 import {useState} from 'react'
+import { Decks } from './Decks.js'
+import FirstScreen from './FirstScreen.js'
+import Header from './Header.js'
 import Footer from './Footer.js'
 
-const deck = [
-    {question: "Test 1", answer: "Answer 1"},
-    {question: "Test 2", answer: "Answer 2"},
-    {question: "Test 3", answer: "Answer 3"},
-    {question: "Test 4", answer: "Answer 4"},
-    {question: "Test 5", answer: "Answer 5"},
-    {question: "Test 6", answer: "Answer 6"},
-    {question: "Test 7", answer: "Answer 7"},
-    {question: "Test 8", answer: "Answer 8"},
-    {question: "Test 9", answer: "Answer 9"},
-    {question: "Test 10", answer: "Answer 10"}
-]
-
+const deck = Decks.hiragana
 const newDeck = [...deck]
 newDeck.sort(() => Math.random() - 0.5)
 
 export default function Main() {
     const [finished, setFinished] = useState([])
     const [clear, setClear] = useState(0)
+    const [restart, setRestart] = useState(false)
     const max = newDeck.length
 
     function attFinished(color) {
@@ -28,20 +20,18 @@ export default function Main() {
     }
  
     return (
+        restart ? <FirstScreen /> :
         <>
-            <main style={{'marginBottom': `${clear === max ? 185 : 110}px`}}>
+            <Header />
+            <main style={{'marginBottom': `${clear === max ? 215 : 110}px`}}>
                 {newDeck.map(
                     ({question, answer}, i) => 
-                    <Question 
-                        key={question} 
-                        index={i + 1} 
-                        question={question} 
-                        answer={answer} 
-                        attFinished={attFinished} 
-                    />
+                    <Question key={question} index={i + 1} question={question} answer={answer} 
+                        attFinished={attFinished} />
                 )}
             </main>
-            <Footer array={finished} clear={clear} max={max}/>
+            <Footer array={finished} clear={clear} max={max} 
+                setFinished={setFinished} setClear={setClear} setRestart={setRestart}/>
         </>
     )
 }

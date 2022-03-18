@@ -1,12 +1,20 @@
-export default function Footer({array, clear, max}) {
+export default function Footer({array, clear, max, setFinished, setClear, setRestart}) {
+
+    function restartRecall() {
+        setRestart(true)
+        setFinished([])
+        setClear(0)
+    }
+
     return (
-        <footer style={{'height': `${max === clear ? 150 : 75}px`}}>
+        <footer style={{'height': `${max === clear ? 190 : 75}px`}}>
             {max === clear ? <Clear array={array} /> : <p>{clear}/{max} CLEARED</p>}
             <div>
                 {array.map(
                     (color, i) => <Icons key={`${color} - ${i}`} color={color}/> 
                 )}
             </div>
+            {max === clear ? <button onClick={restartRecall}>RESTART RECALL</button> : <></>}
         </footer>
     )
 }

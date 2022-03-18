@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import MainScreen from './MainScreen'
+import Main from './Main'
 
 export default function FirstScreen() {
     const [show, setShow] = useState(false)
@@ -17,6 +17,6 @@ export default function FirstScreen() {
     }
 
     return (
-        show ? <MainScreen /> : Screen()
+        show ? <Main /> : Screen()
     )
 }

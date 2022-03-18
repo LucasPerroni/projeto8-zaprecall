@@ -231,13 +231,26 @@ footer ion-icon {
 
 footer h1 {
     font-weight: 700;
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .clear-p {
     font-size: 18px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+}
+
+footer button {
+    width: 55%;
+    max-width: 300px;
+    height: 40px;
+    border: none;
+    background-color: #FB6B6B;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 /* OTHER */
