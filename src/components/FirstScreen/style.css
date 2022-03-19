@@ -10,7 +10,7 @@
     background-color: #FB6B6B;
 }
 
-.deck-selection div {
+.logo {
     width: 232px;
     margin: 50px auto;
     display: flex;
@@ -29,12 +29,22 @@
     color: #FFFFFF;
 }
 
+.choose-deck {
+    width: 380px;
+    max-width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px auto 0;
+}
+
 select {
     width: 181px;
     height: 40px;
-    margin: 50px auto 0;
     border: none;
     outline: none;
+    margin-bottom: 10px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     padding: 10px;
@@ -48,12 +58,16 @@ select {
     height: 40px;
     border: none;
     outline: none;
+    margin-bottom: 10px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    margin: 10px auto;
     padding: 10px;
     color: #FB6B6B;
     font-size: 14px;
+}
+
+.deck-selection input:nth-child(3) {
+    margin: 0 auto 10px;
 }
 
 .deck-selection input::placeholder {
