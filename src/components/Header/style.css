@@ -1,0 +1,19 @@
+header {
+    width: 100%;
+    margin: 25px 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-family: 'Righteous', cursive;
+    font-size: 35px;
+    line-height: 24.83px;
+    color: #FFFFFF;
+}

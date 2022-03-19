@@ -1,6 +1,8 @@
+import './style.css'
 import {useState} from 'react'
-import Main from './Main'
-import { Decks } from './Decks'
+import { Decks } from '../Decks'
+import Main from '../Main/Main'
+import Logo from '../../assets/Logo.png'
 
 export default function FirstScreen() {
     const [show, setShow] = useState(false)
@@ -28,7 +30,7 @@ export default function FirstScreen() {
         return (
             <div className="deck-selection">
                 <div>
-                    <img src="images/Logo.png" alt="ZapRecall logo"></img>
+                    <img src={Logo} alt="ZapRecall logo"></img>
                     <h1>ZapRecall</h1>
                 </div>
                 <Select changeDeck={changeDeck} decksName={decksName} decksArray={decksArray} />

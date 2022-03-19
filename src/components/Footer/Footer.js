@@ -1,3 +1,5 @@
+import './style.css'
+
 export default function Footer({array, clear, max, input, setFinished, setClear, setRestart}) {
 
     function restartRecall() {

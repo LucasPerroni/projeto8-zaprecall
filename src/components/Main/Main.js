@@ -1,7 +1,8 @@
+import './style.css'
 import {useState} from 'react'
-import FirstScreen from './FirstScreen.js'
-import Header from './Header.js'
-import Footer from './Footer.js'
+import FirstScreen from '../FirstScreen/FirstScreen'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 export default function Main({input, deck}) {
     const [finished, setFinished] = useState([])

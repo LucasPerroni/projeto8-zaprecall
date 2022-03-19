@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Recursive', sans-serif;
+}
+
+body {
+    background-color: #FB6B6B;
+    font-family: 'Recursive', sans-serif;
+}
+
+/* OTHER */
+
+.red {
+    background-color: #FF3030;
+}
+
+.yellow {
+    background-color: #FF922E;
+}
+
+.green {
+    background-color: #2FBE34;
+}
